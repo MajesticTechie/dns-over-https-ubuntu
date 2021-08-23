@@ -15,7 +15,7 @@ rm -f cloudflared-linux-amd64.deb
 echo "Checking Version...."
 cloudflared --version
 
-read -n 1 -s -r -p "If version appears ok, Press any key to continue. Otherwise See: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation"
+read -n 1 -s -r -p "If version appears ok, Press any key to continue."
 
 #########################
 ## Start configuration ##
