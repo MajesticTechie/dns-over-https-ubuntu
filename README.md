@@ -1,5 +1,5 @@
 # dns-over-https-ubuntu
-This script will setup cloudflared as a local service to secure outbound DNS requsts over https.
+This script will setup cloudflared as a local service to secure outbound DNS requests over https.
 
 Run with
 
