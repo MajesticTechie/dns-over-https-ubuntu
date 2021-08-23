@@ -7,7 +7,7 @@
 ##################
 #Download and install latest version
 wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
-sudo apt install cloudflared-linux-amd64.deb
+sudo apt install ./cloudflared-linux-amd64.deb
 #Cleanup
 rm -f cloudflared-linux-amd64.deb
 
