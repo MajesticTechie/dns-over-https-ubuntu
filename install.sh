@@ -22,15 +22,13 @@ rm -f cloudflared-linux-amd64.deb
 #########################
 # Start on port 5553
 cloudflared proxy-dns --port 5553 &
-echo "press Enter"
-
-#Give time for service to start
-sleep 5s # Waits 5 seconds.
+echo
+echo "###### Press Enter to continue ######"
 
 #Make sure Service is running:
 echo "running query to check serice is running:"
 dig +short @127.0.0.1 -p5553 cloudflare.com AAAA
-
+echo
 read -n 1 -s -r -p "###### If DNS appears ok, Press any key to continue. ######"
 
 #Setup Serice to run on Startup
@@ -50,6 +48,7 @@ ExecStart=/usr/local/bin/cloudflared proxy-dns
 WantedBy=multi-user.target
 EOF
 
+#Enable Service
 sudo systemctl enable --now cloudflared-proxy-dns
 
 # Configure resolver:
@@ -57,6 +56,9 @@ sudo rm -f /etc/resolv.conf
 echo nameserver 127.0.0.1 | sudo tee /etc/resolv.conf >/dev/null
 
 #Final DNS check
+echo
 echo " ###### Final Check. DNS check on localhost on standard DNS port [53] ###### "
-echo "!!! Cloudflared is now running on 127.0.0.1 port 53 !!!"
 dig +short @127.0.0.1 cloudflare.com AAAA
+echo
+echo "!!! Cloudflared is now running on 127.0.0.1 port 53 !!!"
+
