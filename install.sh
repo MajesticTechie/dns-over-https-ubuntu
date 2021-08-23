@@ -8,14 +8,14 @@
 #Download and install latest version
 wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
 sudo apt install ./cloudflared-linux-amd64.deb
-#Cleanup
-rm -f cloudflared-linux-amd64.deb
 
 #Show Version
 echo "Checking Version...."
 cloudflared --version
 
 read -n 1 -s -r -p "If version appears ok, Press any key to continue."
+#Cleanup
+rm -f cloudflared-linux-amd64.deb
 
 #########################
 ## Start configuration ##
